@@ -1,3 +1,13 @@
+let displayNumber;
+
+const numberButtons = document.querySelectorAll('.numberButton');
+
+numberButtons.forEach((button) => {
+    button.addEventListener('click', () => {    
+        console.log(button.textContent);
+    })
+})
+
 function add(num1, num2) {
     return num1 + num2;
 }
