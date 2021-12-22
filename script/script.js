@@ -1,4 +1,5 @@
 let displayNumber = '';
+let storedNumber = '';
 let operator = '';
 let num1 = 10;
 let num2 = 10;
@@ -6,21 +7,37 @@ let num2 = 10;
 const numberButtons = document.querySelectorAll('.numberButton');
 const operatorButtons = document.querySelectorAll('.operatorButton');
 const clearButtons = document.querySelectorAll('.clearButton');
-const displayedNumber = document.querySelector('.displayNumber');
-
+const numberScreen = document.querySelector('.displayNumber');
+const storedScreen = document.querySelector('.storedNumber');
 
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
         displayNumber += button.textContent;
-        displayedNumber.textContent = displayNumber;
+        numberScreen.textContent = displayNumber;
     })
 })
 
 operatorButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        operator = button.textContent;
-        console.log(operator);
-        console.log(operate(num1, num2, operator));
+        if (button.textContent == '=') {
+            displayNumber = operate(Number(storedNumber), Number(displayNumber), operator);
+            storedNumber = '';
+            operator = '';
+            storedScreen.textContent = storedNumber;
+            numberScreen.textContent = displayNumber;
+        } else if (storedNumber == '') {
+            storedNumber = displayNumber;
+            displayNumber = '';
+            operator = button.textContent;
+            storedScreen.textContent = storedNumber + operator;
+            numberScreen.textContent = displayNumber;
+        } else {
+            storedNumber = operate(Number(storedNumber), Number(displayNumber), operator);
+            displayNumber = '';
+            operator = button.textContent;
+            storedScreen.textContent = storedNumber + operator;
+            numberScreen.textContent = displayNumber;
+        }
     })
 })
 
