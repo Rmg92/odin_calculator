@@ -1,8 +1,6 @@
 let displayNumber = '';
 let storedNumber = '';
 let operator = '';
-let num1 = 10;
-let num2 = 10;
 
 const numberButtons = document.querySelectorAll('.numberButton');
 const operatorButtons = document.querySelectorAll('.operatorButton');
@@ -43,7 +41,17 @@ operatorButtons.forEach((button) => {
 
 clearButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        console.log(button.textContent);
+        switch (button.textContent) {
+            case 'AC':
+                displayNumber = '';
+                storedNumber = '';
+                operator = '';
+                storedScreen.textContent = storedNumber;
+                numberScreen.textContent = displayNumber;
+            case 'C':
+                displayNumber = displayNumber.slice(0, displayNumber.length-1);
+                numberScreen.textContent = displayNumber;
+        }
     })
 })
 
