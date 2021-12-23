@@ -1,4 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 body {
+    background-color: #2a9d8f;
     text-align: center;
     align-items: center;
+}
+
+.calculator {
+    border: black;
+    border-style: solid;
+    border-radius: 2%;
+    background-color: #264653;
+    height: 500px;
+    width: 400px;
+    margin: auto;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border: black;
+    border-style: solid;
+    border-radius: 1%;
+    background-color: #e9c46a;
+    margin: 10px auto;
+    width: 300px;
+    height: 50px;
+}
+
+.screen p {
+    margin: 0px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: larger;
+}
+
+.buttons {
+    display: grid;
+    margin: 20px;
+    grid-template-columns: repeat(5, 20fr);
+    column-gap: 2px;
+    grid-template-rows: repeat(4, 25fr);
+    row-gap: 2px;
 }

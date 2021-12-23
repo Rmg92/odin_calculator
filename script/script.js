@@ -49,7 +49,7 @@ clearButtons.forEach((button) => {
                 storedScreen.textContent = storedNumber;
                 numberScreen.textContent = displayNumber;
             case 'C':
-                displayNumber = displayNumber.slice(0, displayNumber.length-1);
+                displayNumber = displayNumber.slice(0, displayNumber.length - 1);
                 numberScreen.textContent = displayNumber;
         }
     })
